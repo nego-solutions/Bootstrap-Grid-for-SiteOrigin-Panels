@@ -205,3 +205,11 @@ function so_panels_bootstrap_css_object( $css, $panels_data = null, $post_id = n
 	$css = apply_filters('so_panels_bootstrap_css_object', $css, $panels_data, $post_id);
     return $css;
 }
+
+//=============================== FRONTEND SCRIPTS =======================================
+function so_panels_bootstrap_assets() {
+    //wp_enqueue_style('so-panels-bootstrap-style', plugins_url('assets/so-panels-style.less', __FILE__) );
+    //enueue bootstrap
+    wp_enqueue_style('so-panels-bootstrap', plugins_url('assets/style/bootstrap.min.css', __FILE__) );
+    wp_enqueue_script( 'so-panels-bootstrap-js', plugin_dir_url(__FILE__) . 'assets/js/bootstrap.min.js', null, true );
+}

@@ -15,3 +15,5 @@ add_filter('siteorigin_panels_widget_args', 'so_panels_bootstrap_widget_args', 1
 //============================== CSS OUTPUT ======================================
 add_filter('siteorigin_panels_css_cell_margin_bottom', 'so_panels_bootstrap_css_cell_margin_bottom', 10, 5);
 add_filter('siteorigin_panels_css_object', 'so_panels_bootstrap_css_object', 10, 2);
+//=============================== FRONTEND SCRIPTS =======================================
+add_action( 'wp_enqueue_scripts', 'so_panels_bootstrap_assets' );
