@@ -13,6 +13,7 @@ Checking if SiteOirign Panels is active
 A simple but efficient page template to use with this plugin is:
 
 
+```
 <?php
 /**
  * Template Name: SO Panels Bootstrap
@@ -29,6 +30,7 @@ the_content();
 
 
 get_footer();
+```
 
 this way you'll make sure the full width of the page is used for your content and you can then just play with container vs container-fluid options.
 
