@@ -4,9 +4,6 @@ This project is in preAlpha.
 
 To try it out just use the "Download zip" button on the right hand side and upload the zip file as a WordPress Plugin.
 
-Things left out at this point:
-Checking if SiteOirign Panels is active
-
 
 *As with SiteOrigin Panels the plugin won't work out of the box with any theme! We recommend using a bootstrap style for your theme.
 
