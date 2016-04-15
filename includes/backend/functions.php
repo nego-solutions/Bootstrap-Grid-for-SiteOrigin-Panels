@@ -1,20 +1,21 @@
 <?php
 function so_overwrites(){
 
-    wp_enqueue_style( 'so-overwrites', SO_URL. 'assets/style/so-overwrites.css');
+    wp_enqueue_style( 'so-overwrites', SO_PANELS_BOOTSTRAP_URL . 'assets/style/so-overwrites.css');
 
 }
 //=============================== ROW =======================================
 
 function so_panels_bootstrap_row_fields($fields) {
     $fields['row_stretch']['options'] = array(
+            'in-container' => 'Already In Countainer',
             'container' => 'Container',
             'container-fluid' => 'Container Fluid',
         );
     return $fields;
 }
 //
-function ns_panels_row_ratios($so_ratios) {
+function so_panels_bootstrap_panels_row_ratios($so_ratios) {
     $so_ratios = array(
         '6 - 6' => '1',
         '7 - 5' => '0.710',
@@ -43,14 +44,14 @@ function so_panels_bootstrap_admin_enqueue_scripts( $prefix = '', $force = false
         wp_enqueue_media();
 
         //wp_enqueue_script( 'so-panels-bootstrap-admin', plugin_dir_url(__FILE__) . 'assets/js/so-panels-bootstrap' . SITEORIGIN_PANELS_JS_SUFFIX . '.js', array( 'jquery', 'jquery-ui-resizable', 'jquery-ui-sortable', 'jquery-ui-draggable', 'underscore', 'backbone', 'plupload', 'plupload-all' ), SITEORIGIN_PANELS_VERSION, true );
-        wp_enqueue_script( 'so-panels-bootstrap-admin', plugin_dir_url(__FILE__) . 'assets/js/so-panels-bootstrap.js', array( 'jquery', 'jquery-ui-resizable', 'jquery-ui-sortable', 'jquery-ui-draggable', 'underscore', 'backbone', 'plupload', 'plupload-all' ), SITEORIGIN_PANELS_VERSION, true );
-        wp_enqueue_script( 'so-panels-bootstrap-admin-utils', plugin_dir_url(__FILE__) . 'assets/js/so-panels-bootstrap-utils' . SITEORIGIN_PANELS_JS_SUFFIX . '.js', null, SITEORIGIN_PANELS_VERSION, true );      wp_enqueue_script( 'so-panels-bootstrap-admin-utils', plugin_dir_url(__FILE__) . 'assets/js/so-panels-bootstrap-utils' . SITEORIGIN_PANELS_JS_SUFFIX . '.js', null, SITEORIGIN_PANELS_VERSION, true );
-        wp_enqueue_script( 'so-panels-bootstrap-admin-styles', plugin_dir_url(__FILE__) . 'assets/js/so-panels-bootstrap-styles' . SITEORIGIN_PANELS_JS_SUFFIX . '.js', array( 'jquery', 'underscore', 'backbone', 'wp-color-picker' ), SITEORIGIN_PANELS_VERSION, true );
+        wp_enqueue_script( 'so-panels-bootstrap-admin', SO_PANELS_BOOTSTRAP_URL . 'assets/js/so-panels-bootstrap.js', array( 'jquery', 'jquery-ui-resizable', 'jquery-ui-sortable', 'jquery-ui-draggable', 'underscore', 'backbone', 'plupload', 'plupload-all' ), SITEORIGIN_PANELS_VERSION, true );
+        wp_enqueue_script( 'so-panels-bootstrap-admin-utils', SO_PANELS_BOOTSTRAP_URL . 'assets/js/so-panels-bootstrap-utils' . SITEORIGIN_PANELS_JS_SUFFIX . '.js', null, SITEORIGIN_PANELS_VERSION, true );      wp_enqueue_script( 'so-panels-bootstrap-admin-utils', plugin_dir_url(__FILE__) . 'assets/js/so-panels-bootstrap-utils' . SITEORIGIN_PANELS_JS_SUFFIX . '.js', null, SITEORIGIN_PANELS_VERSION, true );
+        wp_enqueue_script( 'so-panels-bootstrap-admin-styles', SO_PANELS_BOOTSTRAP_URL . 'assets/js/so-panels-bootstrap-styles' . SITEORIGIN_PANELS_JS_SUFFIX . '.js', array( 'jquery', 'underscore', 'backbone', 'wp-color-picker' ), SITEORIGIN_PANELS_VERSION, true );
 
         if( $screen->base != 'widgets' && $screen->base != 'customize' ) {
             // We don't use the history browser and live editor in the widgets interface
-            wp_enqueue_script( 'so-panels-bootstrap-admin-history', plugin_dir_url(__FILE__) . 'assets/js/so-panels-bootstrap-history' . SITEORIGIN_PANELS_JS_SUFFIX . '.js', array( 'so-panels-bootstrap-admin', 'jquery', 'underscore', 'backbone' ), SITEORIGIN_PANELS_VERSION, true );
-            wp_enqueue_script( 'so-panels-bootstrap-admin-live-editor', plugin_dir_url(__FILE__) . 'assets/js/so-panels-bootstrap-admin-live-editor' . SITEORIGIN_PANELS_JS_SUFFIX . '.js', array( 'so-panels-bootstrap-admin', 'jquery', 'underscore', 'backbone' ), SITEORIGIN_PANELS_VERSION, true );
+            wp_enqueue_script( 'so-panels-bootstrap-admin-history', SO_PANELS_BOOTSTRAP_URL . 'assets/js/so-panels-bootstrap-history' . SITEORIGIN_PANELS_JS_SUFFIX . '.js', array( 'so-panels-bootstrap-admin', 'jquery', 'underscore', 'backbone' ), SITEORIGIN_PANELS_VERSION, true );
+            wp_enqueue_script( 'so-panels-bootstrap-admin-live-editor', SO_PANELS_BOOTSTRAP_URL . 'assets/js/so-panels-bootstrap-admin-live-editor' . SITEORIGIN_PANELS_JS_SUFFIX . '.js', array( 'so-panels-bootstrap-admin', 'jquery', 'underscore', 'backbone' ), SITEORIGIN_PANELS_VERSION, true );
         }
 
         add_action( 'admin_footer', 'siteorigin_panels_js_templates' );

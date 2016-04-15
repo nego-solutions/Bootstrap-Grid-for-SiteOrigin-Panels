@@ -17,6 +17,10 @@ function so_panels_bootstrap_row_layout_attributes( $attributes = array(), $pane
     } else {
         if ( array_key_exists('row_stretch', $panel_grid_data['style']) ) {
             switch ($panel_grid_data['style']['row_stretch']) {
+                case 'in-container':
+                    $attributes['class'] = 'non-container';
+                    break;
+
                 case 'container':
                     $attributes['class'] = 'container';
                     break;
@@ -26,7 +30,7 @@ function so_panels_bootstrap_row_layout_attributes( $attributes = array(), $pane
                     break;
 
                 default:
-                    $attributes['class'] = 'container';
+                    $attributes['class'] = 'in-container';
                     break;
             }
         } else {
@@ -208,8 +212,8 @@ function so_panels_bootstrap_css_object( $css, $panels_data = null, $post_id = n
 
 //=============================== FRONTEND SCRIPTS =======================================
 function so_panels_bootstrap_assets() {
-    //wp_enqueue_style('so-panels-bootstrap-style', plugins_url('assets/so-panels-style.less', __FILE__) );
+    //wp_enqueue_style('so-panels-bootstrap-style', SO_PANELS_BOOTSTRAP_URL . 'assets/so-panels-style.less'  );
     //enueue bootstrap
-    wp_enqueue_style('so-panels-bootstrap', plugins_url('assets/style/bootstrap.min.css', __FILE__) );
-    wp_enqueue_script( 'so-panels-bootstrap-js', plugin_dir_url(__FILE__) . 'assets/js/bootstrap.min.js', null, true );
+    wp_enqueue_style('so-panels-bootstrap', SO_PANELS_BOOTSTRAP_URL . 'assets/style/bootstrap.min.css' );
+    wp_enqueue_script( 'so-panels-bootstrap-js', SO_PANELS_BOOTSTRAP_URL . 'assets/js/bootstrap.min.js', array('jquery'), true );
 }

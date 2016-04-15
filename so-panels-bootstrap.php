@@ -13,8 +13,6 @@ class SO_Panels_Bootstrap {
 
 	public function activate() {
 		$this->check_dependencies();
-		$this->define_constants();
-		$this->load_includable_files();
 	}
 
 	/**
@@ -30,6 +28,10 @@ class SO_Panels_Bootstrap {
 
 	public function bootstrap() {
 		register_activation_hook( __FILE__, array( $this, 'activate' ) );
+
+		$this->define_constants();
+		$this->load_includable_files();
+
 		add_action( 'plugins_loaded', array( $this, 'maybe_self_deactivate' ) );
 	}
 
@@ -53,7 +55,6 @@ class SO_Panels_Bootstrap {
 	}
 
 	function load_includable_files() {
-		//define('SO_PANELS_BOOTSTRAP_BASE_FILE', __FILE__);
 		require_once plugin_dir_path(__FILE__) . 'includes/backend/hooks.php';
 		require_once plugin_dir_path(__FILE__) . 'includes/backend/functions.php';
 		require_once plugin_dir_path(__FILE__) . 'includes/frontend/hooks.php';
@@ -61,6 +62,7 @@ class SO_Panels_Bootstrap {
 	}
 
 	function define_constants() {
+		define('SO_PANELS_BOOTSTRAP_BASE_FILE', __FILE__);
 		define('SO_PANELS_BOOTSTRAP_URL', plugin_dir_url(__FILE__));
 	}
 
